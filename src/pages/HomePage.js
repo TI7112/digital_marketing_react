@@ -1,48 +1,92 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Navbar from '../components/Navbar'
 import LandingPage from '../components/LandingPage'
+import HomePage_Hero from '../components/HomePage_Hero'
+import HomePage_About from '../components/HomePage_About'
 
 const HomePage = () => {
+
   return (
     <>
       <Navbar />
-      <div style={{ backgroundImage: `URL(${require('../assets/static/hero_bg.webp')})` }} className={`bg-[#072d56] flex items-center justify-center w-full h-[85vh] bg-right bg-no-repeat`}>
-        <div className="flex items-center h-full w-[75%] pt-16">
-          <div class="w-[40%] h-[60%] flex flex-col gap-12   ">
-            <h1 class="text-white leading-[1.1em] font-serif font-bold px-4 tracking-wide text-6xl">Drive growth at scale for your brand.</h1>
-            <div className="">
-              <svg className='rotate-90 w-36 h-28 py-2 ' viewBox="0 0 65.1 91.5" fill='#0693e3' xmlns="http://www.w3.org/2000/svg"><g class=" plus-1"><path d="m6.2 6.3v.2h-4.2v1.3h4.2v4.5h1.4v-4.5z"></path><path d="m7.6 1.8h-1.4v4.5l1.4 1.5h4.2v-1.3h-4.2z"></path></g><g class="center-col"><path class="plus-11" d="m33.1 53.3h-1.5v4.6h-4.2v1.3h4.2v4.6h1.5v-4.5h4.2v-1.3h-4.2z"></path><path class="plus-8" d="m33.1 79.3h-1.5v4.7h-4.2v1.3h4.2v4.5h1.5v-4.5h4.2v-1.3h-4.2z"></path><path class="plus-5" d="m33.1 27.3h-1.5v4.7h-4.2v1.3h4.2v4.5h1.5v-4.5h4.2v-1.3h-4.2z"></path><path class="plus-2" d="m33.1 1.8h-1.5v4.7h-4.2v1.3h4.2v4.5h1.5v-4.5h4.2v-1.3h-4.2z"></path></g><path class="plus-3" d="m58.9 1.8h-1.5v4.7h-4.2v1.3h4.2v4.5h1.5v-4.5h4.2v-1.3h-4.2z"></path><path class="plus-4" d="m7.6 27.3h-1.4v4.7h-4.2v1.3h4.2v4.5h1.5v-4.5h4.2v-1.3h-4.3z"></path><g class="glitcher plus-6"><path d="m57.4 33.3 1.5-1.5v-4.5h-1.5v4.7h-4.1v1.3z"></path><path d="m58.9 31.8-1.5 1.5v4.5h1.5v-4.5h4.1v-1.3h-4.1z"></path></g><path class="plus-7" d="m7.6 53.3h-1.4v4.6h-4.2v1.3h4.2v4.6h1.5v-4.5h4.2v-1.3h-4.3z"></path><g class="glitcher plus-9"><path d="m57.4 57.8v.2h-4.1v1.3h4.1v4.5h1.5v-4.5z"></path><path d="m58.9 53.3h-1.5v4.5l1.5 1.5h4.1v-1.3h-4.1z"></path></g><g class="glitcher plus-10"><path d="m6.2 83.8v.2h-4.2v1.3h4.2v4.5h1.4v-4.5z"></path><path d="m7.6 79.3h-1.4v4.5l1.4 1.5h4.2v-1.3h-4.2z"></path></g></svg>
-            </div>
-          </div>
-          <div class="w-60 h-[60%]">
-            <svg className='w-36 h-28 py-2 ' fill='#0693e3' viewBox="0 0 65.1 91.5" xmlns="http://www.w3.org/2000/svg"><g class="glitcher plus-1"><path d="m6.2 6.3v.2h-4.2v1.3h4.2v4.5h1.4v-4.5z"></path><path d="m7.6 1.8h-1.4v4.5l1.4 1.5h4.2v-1.3h-4.2z"></path></g><g class="center-col"><path class="plus-11" d="m33.1 53.3h-1.5v4.6h-4.2v1.3h4.2v4.6h1.5v-4.5h4.2v-1.3h-4.2z"></path><path class="plus-8" d="m33.1 79.3h-1.5v4.7h-4.2v1.3h4.2v4.5h1.5v-4.5h4.2v-1.3h-4.2z"></path><path class="plus-5" d="m33.1 27.3h-1.5v4.7h-4.2v1.3h4.2v4.5h1.5v-4.5h4.2v-1.3h-4.2z"></path><path class="plus-2" d="m33.1 1.8h-1.5v4.7h-4.2v1.3h4.2v4.5h1.5v-4.5h4.2v-1.3h-4.2z"></path></g><path class="plus-3" d="m58.9 1.8h-1.5v4.7h-4.2v1.3h4.2v4.5h1.5v-4.5h4.2v-1.3h-4.2z"></path><path class="plus-4" d="m7.6 27.3h-1.4v4.7h-4.2v1.3h4.2v4.5h1.5v-4.5h4.2v-1.3h-4.3z"></path><g class="glitcher plus-6"><path d="m57.4 33.3 1.5-1.5v-4.5h-1.5v4.7h-4.1v1.3z"></path><path d="m58.9 31.8-1.5 1.5v4.5h1.5v-4.5h4.1v-1.3h-4.1z"></path></g><path class="plus-7" d="m7.6 53.3h-1.4v4.6h-4.2v1.3h4.2v4.6h1.5v-4.5h4.2v-1.3h-4.3z"></path><g class="glitcher plus-9"><path d="m57.4 57.8v.2h-4.1v1.3h4.1v4.5h1.5v-4.5z"></path><path d="m58.9 53.3h-1.5v4.5l1.5 1.5h4.1v-1.3h-4.1z"></path></g><g class="glitcher plus-10"><path d="m6.2 83.8v.2h-4.2v1.3h4.2v4.5h1.4v-4.5z"></path><path d="m7.6 79.3h-1.4v4.5l1.4 1.5h4.2v-1.3h-4.2z"></path></g></svg>
-          </div>
-          <div className="w-[40vw] h-[45vh] flex items-center">
-            <div className="w-full h-full bg-white p-6 rounded-xl">
-              <div className="w-full h-full px-20 mt-3">
-                <div className="relative h-10">
-                  <div className="w-full h-[3px] rounded-full bg-slate-500"></div>
-                  <div className="absolute -top-3 w-full flex justify-between">
-                    <div className="">
-                    <p className=' border-2 border-slate-800 bg-white w-8 h-8 rounded-full text-center font-bold'>1</p>
-                    <div className="bg-[#0693e3] mt-1.5 h-[3px] w-full"></div>
-                    </div>
-                    <div className="">
-                    <p className=' border-2 border-slate-800 bg-white w-8 h-8 rounded-full text-center font-bold'>2</p>
-                    <div className="bg-[#0693e3] mt-1.5 h-[3px] w-full"></div>
-                    </div>
-                    <div className="">
-                    <p className=' border-2 border-slate-800 bg-white w-8 h-8 rounded-full text-center font-bold'>3</p>
-                    <div className="bg-[#0693e3] mt-1.5 h-[3px] w-full"></div>
-                    </div>
-                  </div>
+      <HomePage_Hero />
+      <HomePage_About />
+
+      <div className="flex flex-col items-center bg-gray-100">
+        <div className="w-[70%] h-screen">
+          <div className="flex flex-col items-center">
+            <p className='text-5xl font-bold tracking-wider pt-16 pb-8 font-serif text-center'>Our proven process</p>
+            <p className='text-slate-700 w-[50vw] text-center font-semibold'>Marketing fundamentals drive results – not tactics or fads. That’s what our approach is all about: universal performance marketing truths that stand the test of time and help you win.</p>
+            <div className="grid grid-cols-4 w-full gap-5 py-16">
+              <div className="w-full flex gap-5">
+                <div className="w-20 h-20 rounded-full p-1 bg-gradient-to-tl from-blue-500 via-emerald-500 to-teal-500">
+                  <p className='text-4xl font-bold text-center w-full bg-white h-full flex justify-center items-center rounded-full'>P</p>
+                </div>
+                <div className="w-[60%] py-1">
+                  <p className='text-4xl font-bold'>Prepare</p>
+                  <p className='text-sm font-semibold py-2'>DISCOVER | MODEL</p>
+                  <p className='font-semibold text-slate-700'>Understand your business and its revenue funnel</p>
+                </div>
+                <div className="">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 33.5 233"><path d="M27.6 233H0v-1h26.6V129.9l5.9-13.9-5.9-13V1H0V0h27.6v102.9l5.9 13.1-5.9 14.1z" fill="#e1e0e1" /></svg>
                 </div>
               </div>
+              <div className="w-full flex gap-5">
+                <div className="w-20 h-20 rounded-full p-1 bg-gradient-to-tl from-blue-500 via-emerald-500 to-teal-500">
+                  <p className='text-4xl font-bold text-center w-full bg-white h-full flex justify-center items-center  rounded-full'>P</p>
+                </div>
+                <div className="w-[60%] pt-1">
+                  <p className='text-4xl font-bold'>Prepare</p>
+                  <p className='text-sm font-semibold py-2'>DISCOVER | MODEL</p>
+                  <p className='font-semibold text-slate-700'>Understand your business and its revenue funnel</p>
+                </div>
+                <div className="">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 33.5 233"><path d="M27.6 233H0v-1h26.6V129.9l5.9-13.9-5.9-13V1H0V0h27.6v102.9l5.9 13.1-5.9 14.1z" fill="#e1e0e1" /></svg>
+                </div>
+              </div>
+              <div className="w-full flex gap-5">
+                <div className="w-20 h-20 rounded-full p-1 bg-gradient-to-tl from-blue-500 via-emerald-500 to-teal-500">
+                  <p className='text-4xl font-bold text-center w-full bg-white h-full flex justify-center items-center  rounded-full'>P</p>
+                </div>
+                <div className="w-[60%] pt-1">
+                  <p className='text-4xl font-bold'>Prepare</p>
+                  <p className='text-sm font-semibold py-2'>DISCOVER | MODEL</p>
+                  <p className='font-semibold text-slate-700'>Understand your business and its revenue funnel</p>
+                </div>
+                <div className="">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 33.5 233"><path d="M27.6 233H0v-1h26.6V129.9l5.9-13.9-5.9-13V1H0V0h27.6v102.9l5.9 13.1-5.9 14.1z" fill="#e1e0e1" /></svg>
+                </div>
+              </div>
+              <div className="w-full flex gap-5">
+                <div className="w-20 h-20 rounded-full p-1 bg-gradient-to-tl from-blue-500 via-emerald-500 to-teal-500">
+                  <p className='text-4xl font-bold text-center w-full bg-white h-full flex justify-center items-center  rounded-full'>P</p>
+                </div>
+                <div className="w-[60%] pt-1">
+                  <p className='text-4xl font-bold'>Prepare</p>
+                  <p className='text-sm font-semibold py-2'>DISCOVER | MODEL</p>
+                  <p className='font-semibold text-slate-700'>Understand your business and its revenue funnel</p>
+                </div>
+                <div className="">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 33.5 233"><path d="M27.6 233H0v-1h26.6V129.9l5.9-13.9-5.9-13V1H0V0h27.6v102.9l5.9 13.1-5.9 14.1z" fill="#e1e0e1" /></svg>
+                </div>
+              </div>
+            </div>
+            <div className="flex justify-between">
+              <div className="w-1/2">
+                {/* <img src={`${require('../assets/static/')}`} alt="" /> */}
+              </div>
+              <div className="w-1/2">
+                <p className='text-3xl font-bold tracking-wider py-4 font-serif'>Always going beyond the lead</p>
+                <p className='font-semibold text-slate-700'>We’re never satisfied with just a click or lead. So through our Act and Calibrate phases, we optimize for outcomes that matter most to your business — like qualified leads, sales opportunities, and Closed Won revenue.</p>
+              </div>
+
             </div>
           </div>
         </div>
       </div>
+      {/* <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 33.5 233"><path d="M27.6 233H0v-1h26.6V129.9l5.9-13.9-5.9-13V1H0V0h27.6v102.9l5.9 13.1-5.9 14.1z" fill="#e1e0e1"/></svg> */}
       {/* <LandingPage /> */}
+
     </>
   )
 }

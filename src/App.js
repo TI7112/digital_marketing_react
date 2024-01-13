@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import HomePage from './pages/HomePage';
 import { Route, Routes } from 'react-router-dom';
+import Thank from './pages/Thank';
 // import {useSpring, animated } from 'react-spring'
 
 // function Number({n}){
@@ -20,6 +21,7 @@ function App() {
   return (
     <Routes>
       <Route path='/' element={<HomePage />} />
+      <Route path='/thanks' element={<Thank />} />
     </Routes>
   )
 }
