@@ -14,7 +14,7 @@ const LandingPage = () => {
             {/* page: 1 */}
             <div className="bg-blue-950 w-screen flex h-screen mt-14" style={{ backgroundImage: "url(https://www.webmechanix.com/wp-content/themes/webmechanix-2021/dist/img/wmx-hero-bg-2.webp)" }}>
                 <div className="w-[50%]  h-full items-center  flex">
-                    <h1 className='text-white text-6xl font-bold px-24 leading-snug'>Drive growth at scale for your brand.</h1>
+                    <h1 className='text-white text-6xl font-bold px-40 leading-snug'>Drive growth at scale for your brand.</h1>
                 </div>
                 <div className="w-[50%]">
                     <div className="flex h-full items-center">
