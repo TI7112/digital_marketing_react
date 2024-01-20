@@ -21,7 +21,7 @@ const Footer = () => {
                     <p className='text-slate-200'>Sipahi tola Purnea,</p>
                     <p className='text-slate-200'>Bihar 854301</p>
                     <div className="py-5 flex flex-col gap-0.5">
-                        <a href='' className='text-lg text-slate-200'>+91 8405832947</a>
+                        <a href='' className='text-lg text-slate-200'>+91 9060532886</a>
                         <a href='' className='text-lg text-slate-200'>ayushjha7112@gmail.com</a>
                     </div>
                     <div className="flex gap-3">
