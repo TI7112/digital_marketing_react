@@ -72,7 +72,7 @@ const Navbar = () => {
             menuList: [
                 {
                     title: 'Blog',
-                    url: '#',
+                    url: '/blogs',
                 },
                 {
                     title: 'Podcast',

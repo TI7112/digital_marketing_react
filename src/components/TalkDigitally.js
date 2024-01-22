@@ -1,42 +1,28 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const TalkDigitally = () => {
+const TalkDigitally = ({ children, data }) => {
 
     return (
         <>
-            <div className="flex justify-center bg-sky-800">
-                <div className="min-h-[50vh] pt-20 w-[70%] flex flex-col items-center">
-                    <p className='text-5xl font-bold tracking-wider text-white pt-16 pb-8 font-serif text-center'>Ready to talk digital?</p>
-                    <Link to={'#'}>
-                        <p className='w-fit bg-sky-700 border-2  px-16 text-white duration-300 py-2 uppercase tracking-wider rounded-tl-full hover:rounded-bl-full hover:rounded-tr-full rounded-br-full hover:rounded-none text-lg'>Get started with your free audit</p>
-                    </Link>
-                </div>
+            <div className="flex justify-center min-h-80 bg-sky-800">
+                {children}
             </div>
 
             <div className="flex justify-center -mt-40">
                 <div className="w-[70%] flex items-center gap-20">
-                    <div className="w-1/2">
-                        <img className='rounded' src={`${require('../assets/static/crosslink-insights.jpg')}`} alt="" />
-                        <div className="py-8 flex flex-col gap-5">
-                            <p className='text-6xl font-bold tracking-wider text-sky-700 font-serif'>Insights</p>
-                            <p className='text-sm w-[80%] text-slate-500'>Get the WebMechanix perspective on industry updates, best practices, and more.</p>
+                    {data.map((curElem, index) => (
+                        <div key={index} className="w-1/2">
+                            <img className='rounded h-80 w-full' src={`${require('../assets/static/' + curElem.imgurl)}`} alt="" />
+                            <div className="py-8 flex flex-col gap-5">
+                                <p className='text-6xl font-bold tracking-wider text-sky-700 font-serif'>{curElem.title}</p>
+                                <p className='text-sm w-[80%] text-slate-500'>{curElem.desc}</p>
+                            </div>
+                            <Link to={curElem.btn_link}>
+                                <p className='w-fit bg-sky-700 border-2  px-16 text-white duration-300 py-2 uppercase tracking-wider rounded-tl-full hover:rounded-bl-full hover:rounded-tr-full rounded-br-full hover:rounded-none text-sm'>{curElem.btn_title}</p>
+                            </Link>
                         </div>
-                        <Link to={'#'}>
-                            <p className='w-fit bg-sky-700 border-2  px-16 text-white duration-300 py-2 uppercase tracking-wider rounded-tl-full hover:rounded-bl-full hover:rounded-tr-full rounded-br-full hover:rounded-none text-sm'>Learn More</p>
-                        </Link>
-                    </div>
-                    <div className="w-1/2">
-                        <img className='rounded' src={`${require('../assets/static/TheTeam.jpg')}`} alt="" />
-                        <div className="py-8 flex flex-col gap-5">
-                            <p className='text-6xl font-bold tracking-wider text-sky-700 font-serif'>Meet the team</p>
-                            <p className='text-sm w-[80%] text-slate-500'>Get to know a little more about the 60+ problem solvers behind the work.</p>
-                        </div>
-                        <Link to={'#'}>
-                            <p className='w-fit bg-sky-700 border-2  px-16 text-white duration-300 py-2 uppercase tracking-wider rounded-tl-full hover:rounded-bl-full hover:rounded-tr-full rounded-br-full hover:rounded-none text-sm'>See our faces</p>
-                        </Link>
-                    </div>
-
+                    ))}
                 </div>
             </div>
             <div className="flex py-10 gap-5 justify-center">

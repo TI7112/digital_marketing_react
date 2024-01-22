@@ -67,7 +67,7 @@ const HomePage_Hero = () => {
     }
 
     return (
-        <div style={{ backgroundImage: `URL(${require('../assets/static/hero_bg.webp')})` }} className={`bg-[#072d56] flex items-center justify-center w-full h-[85vh] bg-right bg-no-repeat`}>
+        <div style={{ backgroundImage: `URL(${require('../assets/static/hero_bg.webp')})` }} className={`bg-[#072d56] flex items-center justify-center w-full h-screen md:h-[85vh] bg-right bg-no-repeat`}>
             <div className="flex items-center h-full w-[75%] pt-16">
                 <div className="w-[40%] h-[60%] flex flex-col gap-12   ">
                     <h1 className="text-white leading-[1.1em] font-serif font-bold px-4 tracking-wide text-6xl">Drive growth at scale for your brand.</h1>
